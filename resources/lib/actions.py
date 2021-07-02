@@ -132,7 +132,7 @@ def change_volume(name, params, text = None):
         
         params['volume'] = value
         
-        change_volume(name, params, text)
+        return change_volume(name, params, text)
 
     elif 'mut' in text:
         # set/unset mute
