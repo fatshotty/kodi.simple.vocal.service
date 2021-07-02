@@ -40,10 +40,21 @@ def onLog(str):
 
 
 def generate_uuid():
+    import random, string
     # TODO: generate a new UUID for connecting to a server channel
-    # ts = str( time.time() )
-    # last_ts = ts[-3]
-    return "YYY-YYYY-YYY"
+    ts = str( time.time() )
+    last_ts = ts[-3:]
+    code = "{}{}{}-{}{}{}{}-{}".format(
+        random.choice(string.ascii_letters).upper(),
+        random.choice(string.ascii_letters).upper(),
+        random.choice(string.ascii_letters).upper(),
+        random.choice(string.ascii_letters).upper(),
+        random.choice(string.ascii_letters).upper(),
+        random.choice(string.ascii_letters).upper(),
+        random.choice(string.ascii_letters).upper(),
+        last_ts
+    )
+    return code
 
 
 
@@ -57,14 +68,15 @@ def run():
     client_id = kodiutils.get_setting('client_id')
     serverhost = kodiutils.get_setting("server_host")
 
-    logger.info("clientid {} and host {}".format(client_id, serverhost) )
-
     if not client_id:
         logger.info("No client_id found, generate a new one!" )
         # generate a new client_id
         client_id = generate_uuid()
         kodiutils.set_setting('client_id', client_id)
         logger.info("New client_id is ".format(client_id) )
+
+    logger.info("clientid {} and host {}".format(client_id, serverhost) )
+    
 
     logger.info("Try to connect..." )
     socket_client = SocketClient( serverhost, onMessage, client_id = '/{}'.format(client_id), onLog = onLog, onConnect=onConnect, onDisconnect=onDisconnect)
