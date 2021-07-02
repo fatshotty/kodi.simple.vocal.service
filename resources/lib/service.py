@@ -41,7 +41,9 @@ def onLog(str):
 
 def generate_uuid():
     # TODO: generate a new UUID for connecting to a server channel
-    return "XXX-XXXX-XXX"
+    # ts = str( time.time() )
+    # last_ts = ts[-3]
+    return "YYY-YYYY-YYY"
 
 
 
