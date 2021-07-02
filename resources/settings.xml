@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <setting id="debug" type="bool" label="32001" default="false"/>
+    <setting id="client_id" type="text" label="32001" default="" visible="true" enable="false" />
+    <setting id="server_host" type="text" label="32002" default="http://174.138.3.191:5002" visible="false" />
 </settings>
 

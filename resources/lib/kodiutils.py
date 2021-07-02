@@ -23,7 +23,7 @@ def show_settings():
 
 
 def get_setting(setting):
-    return ADDON.getSetting(setting).strip().decode('utf-8')
+    return ADDON.getSetting(setting).strip()
 
 
 def set_setting(setting, value):
@@ -54,6 +54,8 @@ def get_string(string_id):
 
 def kodi_json_request(params):
     data = json.dumps(params)
+
+    logger.debug( 'executing: {}'.format(data) )
     request = xbmc.executeJSONRPC(data)
 
     try:
@@ -64,8 +66,15 @@ def kodi_json_request(params):
     try:
         if 'result' in response:
             return response['result']
+        logger.warn( 'error jsorpc: {}'.format(response) )
         return None
     except KeyError:
         logger.warn("[%s] %s" %
                     (params['method'], response['error']['message']))
         return None
+
+
+
+def debugger():
+    import web_pdb
+    web_pdb.set_trace()

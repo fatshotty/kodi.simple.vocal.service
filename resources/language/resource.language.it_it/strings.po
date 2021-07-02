@@ -23,16 +23,16 @@ msgstr "Kodi Simple Vocal Service"
 
 msgctxt "#32001"
 msgid "ClientID"
-msgstr "Client ID used for connection"
+msgstr "Client ID usato per connettersi"
 
 msgctxt "#32002"
 msgid "ServerHost"
-msgstr "Server host to connect to"
+msgstr "Server verso cui connettersi"
 
 msgctxt "#32003"
 msgid "ConnectionEstablished"
-msgstr "Connection established with server"
+msgstr "Connessione stabilita con in server"
 
 msgctxt "#32004"
 msgid "ConnectionLost"
-msgstr "Connection temporary unavailable"
+msgstr "Connessione momentaneamente persa"
